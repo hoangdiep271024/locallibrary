@@ -1,3 +1,4 @@
 env/
 *.pyc
 .env
+pull_request_template.md

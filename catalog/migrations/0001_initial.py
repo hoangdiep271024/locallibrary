@@ -29,7 +29,8 @@ class Migration(migrations.Migration):
                 ("date_of_birth", models.DateField(blank=True, null=True)),
                 (
                     "date_of_death",
-                    models.DateField(blank=True, null=True, verbose_name="Died"),
+                    models.DateField(blank=True, null=True,
+                                     verbose_name="Died"),
                 ),
             ],
             options={

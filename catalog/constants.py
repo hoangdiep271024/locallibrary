@@ -4,8 +4,8 @@ MAX_LENGTH_SUMMARY = 1000
 MAX_LENGTH_ISBN = 13
 MAX_LENGTH_IMPRINT = 200
 LOAN_STATUS = (
-        ('m', 'Maintenance'),
-        ('o', 'On loan'),
-        ('a', 'Available'),
-        ('r', 'Reserved'),
-    )
+    ('m', 'Maintenance'),
+    ('o', 'On loan'),
+    ('a', 'Available'),
+    ('r', 'Reserved'),
+)

@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %}
+{% load i18n %}
+{% block content %}
+  <h1>Title: {{ book.title }}</h1>
+
+  <p>
+    <p><strong>{% trans "Author" %}:</strong>
+      <a href="#">{{ book.author }}</a>
+      <!-- Author detail link not yet defined -->
+  </p>
+  
+  <p><strong>{% trans "Summary" %}:</strong> {{ book.summary }}</p>
+  <p><strong>{% trans "ISBN" %}:</strong> {{ book.isbn }}</p>
+  <p><strong>{% trans "Language" %}:</strong> {{ book.language }}</p>
+  <p><strong>{% trans "Genre" %}:</strong> {{ genres|join:", " }}</p>
+  
+  <div class="book_detail_container">
+    <h4>{% trans "Copies" %}</h4>
+  </div>
+  
+
+    {% for copy in copies %}
+      <hr />
+      <p
+  class="{% if copy.status == STATUS_AVAILABLE %}text-success
+         {% elif copy.status == STATUS_MAINTENANCE %}text-danger
+         {% else %}text-warning{% endif %}"
+>
+  {{ copy.get_status_display }}
+</p>
+
+
+      {% if copy.status != 'a' %}
+        <p><strong>Due to be returned:</strong> {{ copy.due_back }}</p>
+      {% endif %}
+
+      <p><strong>Imprint:</strong> {{ copy.imprint }}</p>
+      <p class="text-muted"><strong>Id:</strong> {{ copy.id }}</p>
+    {% endfor %}
+  </div>
+{% endblock %}
